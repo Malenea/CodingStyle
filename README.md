@@ -1,6 +1,10 @@
 # CodingStyle
 
+This guide relies heavily on [Ray Wenderlich's swift style-guide](https://github.com/raywenderlich/swift-style-guide) while adding some more rules that we find revelant and removing those which don't really make a difference to us.
+
 ## Code Organization
+
+### MARKing
 
 Use `// MARK: -` whenever separating code in the same file allows to have a nice separation as well as adding a reference in the quick jump bar.
 
