@@ -123,6 +123,14 @@ var myVariable: Bool {
 }
 ```
 
+### Trailing whitespaces and whitespaces only lines
+
+Avoid trailing whitespaces and whitespaces only, as those may create additional diffs on PRs, ultimately, it is also clearer to know when your lines ends.
+
+There's an option in XCode that will automatically do that for you.
+
+![XCode option to trim trailing whitespaces and whitespaces only lines](https://pbs.twimg.com/media/DTawMEMWsAAbbbs?format=png&name=medium)
+
 ### Comments
 
 Don't hesitate to comment your code, if you want it to be parsed as documentation by XCode, use `///` or `/** [...] */`. If you don't want
