@@ -73,6 +73,61 @@ self.myMethod() { [weak self] in
 }
 ```
 
+### Usage of return
+
+If the method or computed property is made of a single expression, you can now avoid using the `return` statement as it is implicitly implied.
+
+#### Preferred:
+
+```Swift
+var myVariable: Bool {
+  true
+}
+
+func myMethod() -> String {
+  "Works perfectly"
+}
+```
+
+#### Not preferred:
+
+```Swift
+var myVariable: Bool {
+  return true
+}
+
+func myMethod() -> String {
+  return "Works perfectly"
+}
+```
+
+### Computed properties
+
+For computed properties, unless a `set` is defined, avoid using the `get` if the property is read-only.
+
+#### Preferred:
+
+```Swift
+var myVariable: Bool {
+  true
+}
+```
+
+#### Not preferred:
+
+```Swift
+var myVariable: Bool {
+  get {
+    return true
+  }
+}
+```
+
+### Comments
+
+Don't hesitate to comment your code, if you want it to be parsed as documentation by XCode, use `///` or `/** [...] */`. If you don't want
+your comment to be documented, prefer `//` or `/* [...] */`.
+
 ### Language
 
 Prefer using US syntax over UK syntax, this will avoid confusion whenever
