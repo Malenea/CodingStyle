@@ -123,6 +123,55 @@ var myVariable: Bool {
 }
 ```
 
+### Blocks, methods and declarations spacing
+
+There should be one blank line at the beginning and ending of each class / extension block for more readability.
+There should be one blank line between methods and up to one blank line between type declarations to aid in visual clarity and organization.
+Whitespace within methods should separate functionality, but having too many sections in a method often means you should refactor into several methods.
+
+```Swift
+class MyClass {
+
+  var myVariable: Bool = true
+
+  func myMethod() {
+    var insideVariable: String = ""
+    
+    AnotherClass.doSomethingWithString(insideVariable)
+  }
+
+}
+```
+
+### Statement spacing
+
+Statements such as `if`/`else if`/`else`/`while`/`for` shoulf sit on the same line as their `{`,`}`.
+
+#### Preferred:
+
+```Swift
+if condition {
+  // Do that
+} else if {
+  // Do this
+} else {
+  // Do not
+}
+```
+
+#### Not preferred:
+
+```Swift
+if condition
+{
+  // Do that
+}
+else
+{
+  // Do this
+}
+```
+
 ### Trailing whitespaces and whitespaces only lines
 
 Avoid trailing whitespaces and whitespaces only, as those may create additional diffs on PRs, ultimately, it is also clearer to know when your lines ends.
