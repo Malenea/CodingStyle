@@ -77,6 +77,13 @@ self.myMethod() { [weak self] in
 }
 ```
 
+### Usage of .leading / .trailing / .natural
+
+Prefer using `.leading`/`.trailing`/`.natural`, for both constraints and text alignements instead of using `.left`/`.right`, unless you do
+have a requirement of sticking it to the desired side.
+This will allow to automatically format both views or text accordingly to Locale. On arabic and japanese phones for example, views and texts
+will align to the right edge.
+
 ### Usage of return
 
 If the method or computed property is made of a single expression, you can now avoid using the `return` statement as it is implicitly implied.
@@ -126,6 +133,10 @@ var myVariable: Bool {
   }
 }
 ```
+
+### Constants
+
+Prefer using a constant `let` whenever the declared variable is not going to be subject to any changes.
 
 ### Blocks, methods and declarations spacing
 
