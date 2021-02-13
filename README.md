@@ -2,6 +2,48 @@
 
 This guide relies heavily on [Ray Wenderlich's swift style-guide](https://github.com/raywenderlich/swift-style-guide) while adding some more rules that we find revelant and removing those which don't really make a difference to us.
 
+## Code safety
+
+### Strong references
+
+Using `weak` or `unknown` in closures whenever there's a chance of creating a retain cycle. Sometimes, `weak` or `unknown` is not necessary if you're sure
+that there is no chance of creating a retain cycle.
+
+Wether you should use `weak` or `unknown` is dependant on your case: [this article explains it quite well.](https://www.uraimo.com/2016/10/27/unowned-or-weak-lifetime-and-performance/)
+
+### Guard let, if let or optional chaining
+
+Whenever in a completion block, using a `weak` reference, you should either use `optional chaining` or a `guard let`/`if let` statement.
+
+```Swift
+completion = { [weak self] in
+  self?.myMethod()
+  
+  guard let self = self else { return }
+  self.myVariable = self.myOtherVariable
+}
+```
+
+When to use `optional chaining` or a `guard let`/`if let` is dependant on your block cycle. Always using `guard let self = self else {}` is not always
+the best solution as, even if rare, you're creating a strong reference to self that could still be accessed after the deinitialization.
+Whenever possible, prefer optional chaining.
+
+### Index access
+
+Whenever accessing a collection's item at a said index `array[index]`, use the `safe` unwrapping we implemented in the PSCommons library.
+
+```Swift
+let item = array[safe: index]
+// Do something with item knowing item can be == nil
+
+guard let item = array[safe: index] else { return }
+// Do something with item
+
+if let item = array[safe: index] {
+  // Do something with item
+}
+```
+
 ## Code Organization
 
 ### MARKing
