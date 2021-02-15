@@ -1,8 +1,5 @@
 # CodingStyle
 
---> 4 spaces for indent
---> 
-
 This guide relies heavily on [Ray Wenderlich's swift style-guide](https://github.com/raywenderlich/swift-style-guide) while adding some more rules that we find revelant and removing those which don't really make a difference to us.
 
 In general, trying to respect whatever rules are enforced with SwiftLint is a priority (cyclomatic complexity).
@@ -256,6 +253,10 @@ Avoid trailing whitespaces and whitespaces only, as those may create additional 
 There's an option in XCode that will automatically do that for you.
 
 ![XCode option to trim trailing whitespaces and whitespaces only lines](https://pbs.twimg.com/media/DTawMEMWsAAbbbs?format=png&name=medium)
+
+### Indentation
+
+Indentation should be based on 4 spaces-tabs instead of 2.
 
 ### Comments
 
