@@ -28,6 +28,8 @@ When to use `optional chaining` or a `guard let`/`if let` is dependant on your b
 the best solution as, even if rare, you're creating a strong reference to self that could still be accessed after the deinitialization.
 Whenever possible, prefer optional chaining.
 
+Also, please use `guard let` if ever this would be a blocking statement and that none of the below code should be executed if the condition is not met, and use if `let if` you have a conditional requirement that should not block below code to be executed.
+
 ### Index access
 
 Whenever accessing a collection's item at a said index `array[index]`, use the `safe` unwrapping we implemented in the PSCommons library.
@@ -118,6 +120,19 @@ self.myMethod() { [weak self] in
   self?.myOtherMethod()
 }
 ```
+
+### Naming
+
+Descriptive and consistent naming makes software easier to read and understand. Use the Swift naming conventions described in the API Design Guidelines. Some key takeaways include:
+
+- striving for clarity at the call site
+- prioritizing clarity over brevity
+- using camelCase (not snake_case)
+- using UpperCamelCase for types and protocols, lowerCamelCase for everything else
+- using names based on roles, not types
+- striving for fluent usage
+- generally avoiding abbreviations
+- preferring methods and properties to free functions
 
 ### Usage of .leading / .trailing / .natural
 
@@ -253,3 +268,8 @@ US - Preferred | UK - Not preferred
 ------------ | -------------
 Color | Colour
 Gray | Grey
+
+### Magic numbers
+
+Avoid using magic numbers, if you need to define a value for spacing, height or anything else, take it from the `PSDesign.Spacing` library.
+If you need to have a specific value for a specific case, encapsulate it in a const and add a comment to explain what it is.
