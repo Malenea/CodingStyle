@@ -2,6 +2,8 @@
 
 This guide relies heavily on [Ray Wenderlich's swift style-guide](https://github.com/raywenderlich/swift-style-guide) while adding some more rules that we find revelant and removing those which don't really make a difference to us.
 
+In general, trying to respect whatever rules are enforced with SwiftLint is a priority (cyclomatic complexity).
+
 ## Code safety
 
 ### Strong references
